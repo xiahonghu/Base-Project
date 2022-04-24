@@ -1,0 +1,57 @@
+# 端口
+server:
+  port: 8010
+
+spring:
+  profiles:
+    # 指定配置
+    # route_simple：简单尝试
+    # route_stripPrefix：截取请求
+    # route_uri：转发指定地址并传入参数
+    # route_addRequestParameter：转发指定服务并传入参数
+    # route_hystrix：熔断
+    # route_requestRateLimiter：限流
+    # route_all：综合
+    active: dev
+  application:
+    # 应用名称
+    name: sentinel-gateway
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+        # 服务注册地址
+        server-addr: 172.16.2.222:8848
+        namespace: 0e5e4fb1-0245-4e76-9c77-c08d1fd9e3db
+      config:
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        # 配置中心地址
+        server-addr: 172.16.2.222:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - ${spring.application.name}-application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    sentinel:
+      scg:
+        fallback:
+          mode: response
+          response-status: 200
+          response-body: '{"status": "FAIL","message": "请求过载,稍后重试!"}'
+      transport:
+        dashboard: 172.16.2.222:8001
+      eager: false
+      datasource:
+        # 名字随意
+        ds:
+          nacos:
+            # nacos的访问地址，，根据上面准备工作中启动的实例配置
+            server-addr: 172.16.2.222:8848
+            namespace: 0e5e4fb1-0245-4e76-9c77-c08d1fd9e3db
+            # nacos中存储规则的groupId
+            groupId: DEFAULT_GROUP
+            # nacos中存储规则的dataId
+            dataId: sentinel-gateway-rules
+            # 用来定义存储的规则类型
+            rule-type: flow
+            data-type: json

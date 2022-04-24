@@ -1,0 +1,5 @@
+com\xiahonghu\project\filters\UriKeyResolver.class
+com\xiahonghu\project\GatewayApplication.class
+com\xiahonghu\project\controller\IndexAction.class
+com\xiahonghu\project\feign\FeignService.class
+com\xiahonghu\project\controller\FallBackController.class

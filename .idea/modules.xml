@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/base-project.iml" filepath="$PROJECT_DIR$/.idea/base-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-business/project-business.iml" filepath="$PROJECT_DIR$/project-business/project-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-common/project-common.iml" filepath="$PROJECT_DIR$/project-common/project-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-business/project-core/project-core.iml" filepath="$PROJECT_DIR$/project-business/project-core/project-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-gateway/project-gateway.iml" filepath="$PROJECT_DIR$/project-gateway/project-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-model/project-model.iml" filepath="$PROJECT_DIR$/project-model/project-model.iml" />
+    </modules>
+  </component>
+</project>
